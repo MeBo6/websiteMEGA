@@ -1,0 +1,284 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Photo Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Professional Evacuation Services",
+    "subtitle": "24/7 Emergency Towing & Recovery Solutions",
+    "cta": "Call Us Now"
+  },
+  "sticky_btn": "Call Us",
+  "why_choose": {
+    "title": "Why Choose MEGA+ Towing?",
+    "feature1_number": "24/7",
+    "feature1_title": "Round-the-Clock Service",
+    "feature1_desc": "Available anytime, day or night, for emergency situations.",
+    "feature2_number": "16+",
+    "feature2_title": "Years of Experience",
+    "feature2_desc": "Professional vehicle recovery and towing since 2008. MEGA+ brand established in 2018.",
+    "feature3_number": "1000+",
+    "feature3_title": "Vehicles We Helped",
+    "feature3_desc": "Thousands of successful operations completed with satisfied customers.",
+    "feature4_number": "100%",
+    "feature4_title": "Professional Team",
+    "feature4_desc": "Certified and trained operators with state-of-the-art equipment."
+  },
+  "service_area": {
+    "title": "Our Service Area",
+    "intro": "We provide 24/7 professional towing and recovery services in Georgia, mostly in Rustavi. Response time: 15-20 minutes in Rustavi, up to 45 minutes in remote locations.",
+    "coverage_area": "Coverage Area",
+    "coverage_area_text": "Whole Georgia, but mostly Rustavi",
+    "response_time": "Response Time",
+    "response_time_text": "15-30 min in Rustavi • 30-45 min outside city",
+    "available": "Available",
+    "available_text": "24 hours a day, 7 days a week, 365 days a year"
+  },
+  "location_widget": {
+    "title": "Tell Us Your Location",
+    "subtitle": "Fastest way to get help - send your location now",
+    "placeholder": "Enter your location (e.g., Highway 10, Rustavi)",
+    "button": "Message us on WhatsApp",
+    "note": "We serve Georgia • Response time: 15-40 minutes"
+  },
+  "services_page": {
+    "title": "Our Services",
+    "intro": "Comprehensive recovery solutions",
+    "evacuator": {
+      "title": "Evacuator",
+      "desc": "Professional evacuation and towing service for all vehicle types. Our evacuators handle vehicles safely and efficiently from any location.",
+      "services_header": "Evacuation Services",
+      "coverage_header": "Coverage",
+      "why_header": "Why Choose Us",
+      "services": [
+        "Fast vehicle removal",
+        "All vehicle types supported",
+        "Careful handling & transport",
+        "GPS-tracked vehicles"
+      ],
+      "coverage": [
+        "Local evacuation",
+        "Long-distance transport",
+        "Highway assistance",
+        "Urban & rural areas"
+      ],
+      "why": [
+        "Professional operators",
+        "Modern equipment",
+        "Competitive pricing",
+        "24/7 availability"
+      ]
+    },
+    "crane": {
+      "title": "Crane Service",
+      "desc": "Heavy lifting solutions with our specialized crane equipment. Perfect for vehicles in difficult positions or heavy recovery situations.",
+      "capabilities_header": "Crane Capabilities",
+      "safety_header": "Safety Features",
+      "recovery_header": "Recovery Solutions",
+      "capabilities": [
+        "Heavy-duty lifting",
+        "Overturned vehicle recovery",
+        "Multi-vehicle extraction",
+        "Precision positioning"
+      ],
+      "safety": [
+        "Certified operators",
+        "Stabilization systems",
+        "Load monitoring",
+        "Insurance coverage"
+      ],
+      "recovery": [
+        "Accident recovery",
+        "Stuck vehicle extraction",
+        "Heavy equipment towing",
+        "Emergency response"
+      ]
+    },
+    "special_equipment": {
+      "title": "Special Equipment",
+      "desc": "Advanced equipment for specialized recovery and towing needs. From rotators to stabilizers, we have the tools for any situation.",
+      "equipment_header": "Equipment Available",
+      "specializations_header": "Specializations",
+      "professional_header": "Professional Service",
+      "equipment": [
+        "Heavy-duty rotators",
+        "Winch systems",
+        "Stabilization gear",
+        "Lifting equipment"
+      ],
+      "specializations": [
+        "Complex extractions",
+        "Off-road recovery",
+        "Accident scene recovery",
+        "Precision operations"
+      ],
+      "professional": [
+        "Certified technicians",
+        "Safe procedures",
+        "Minimal damage approach",
+        "Insurance coordination"
+      ]
+    },
+    "starting": {
+      "title": "Starting the Car",
+      "desc": "Quick battery jump-start service to get your vehicle running. Professional assistance for dead batteries and starting issues.",
+      "services_header": "Services Include",
+      "benefits_header": "Benefits",
+      "availability_header": "Availability",
+      "services": [
+        "Battery jump-start",
+        "Battery diagnostics",
+        "Alternative power solutions",
+        "Emergency response"
+      ],
+      "benefits": [
+        "Quick arrival",
+        "Professional equipment",
+        "Affordable service",
+        "Safe procedures"
+      ],
+      "availability": [
+        "24/7 service",
+        "Fast response",
+        "On-site service"
+      ]
+    },
+    "door": {
+      "title": "Opening Car Door",
+      "desc": "Professional lockout service to safely open your vehicle without damage. Expert assistance when you're locked out of your car.",
+      "lock_header": "Lock Services",
+      "coverage_header": "Coverage",
+      "team_header": "Professional Team",
+      "lock": [
+        "Car lockout assistance",
+        "Non-destructive opening",
+        "Safe procedures"
+      ],
+      "coverage": [
+        "All vehicle types",
+        "Modern security systems",
+        "Emergency situations"
+      ],
+      "team": [
+        "Trained technicians",
+        "Fast resolution",
+        "24/7 availability"
+      ]
+    },
+    "fuel": {
+      "title": "Fuel Delivery",
+      "desc": "Emergency fuel delivery service when you run out of gas. We bring fuel directly to your location.",
+      "services_header": "Fuel Services",
+      "coverage_header": "Coverage Areas",
+      "response_header": "Quick Response",
+      "services": [
+        "Emergency fuel delivery",
+        "Various fuel types",
+        "Quick service"
+      ],
+      "coverage": [
+        "Urban locations",
+        "Highway assistance",
+        "Remote areas"
+      ],
+      "response": [
+        "Fast arrival",
+        "Professional service",
+        "Fair pricing"
+      ]
+    },
+    "tire": {
+      "title": "Tire Change Service",
+      "desc": "Professional tire repair and replacement service on the roadside. Get help with flat tires and tire issues quickly.",
+      "services_header": "Tire Services",
+      "equipment_header": "Professional Equipment",
+      "benefits_header": "Benefits",
+      "services": [
+        "Flat tire repair/replacement",
+        "Spare tire installation",
+        "Tire diagnostics"
+      ],
+      "equipment": [
+        "Modern tools",
+        "Quality service",
+        "Safe procedures"
+      ],
+      "benefits": [
+        "Quick response",
+        "Roadside service",
+        "Professional handling"
+      ]
+    }
+  },
+  "gallery_page": {
+    "title": "Photo Gallery",
+    "desc": "Photo Gallery"
+  },
+  "contact_page": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "form_title": "Send us a Message",
+    "name_label": "Your Name *",
+    "name_placeholder": "Enter your name",
+    "email_label": "Email Address",
+    "email_placeholder": "your.email@example.com",
+    "phone_label": "Phone Number *",
+    "phone_placeholder": "+995 5XX XXX XXX",
+    "service_label": "Required Service",
+    "service_placeholder": "Select a service...",
+    "service_evacuator": "Evacuator",
+    "service_crane": "Crane Service",
+    "service_special": "Special Equipment",
+    "service_starting": "Starting the Car",
+    "service_door": "Opening Car Door",
+    "service_fuel": "Fuel Delivery",
+    "service_tire": "Tire Change",
+    "service_other": "Other",
+    "message_label": "Message *",
+    "message_placeholder": "How can we help you?",
+    "submit_button": "Send Message",
+    "required_text": "* Required field. For emergencies, call us directly at +995 551 305 305",
+    "info_title": "Contact Information",
+    "emergency_line": "Emergency Line",
+    "emergency_available": "Available 24 hours, 7 days a week",
+    "email_title": "Email",
+    "email_response": "We reply as soon as possible",
+    "our_destination": "Our Destination",
+    "destination_text": "Rustavi parking lot, Georgia",
+    "working_hours": "Working Hours",
+    "hours_text": "24/7 service",
+    "follow_us": "Follow Us",
+    "phone": "Phone: +995 551 305 305",
+    "email": "Email: megaplusrustavi@gmail.com",
+    "available": "Available: 24/7"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Are you open 24/7?",
+    "a1": "Yes! MEGA+ Towing is available every day, 24 hours, 365 days a year. Even at 3am or on holidays, we're here to help.",
+    "q2": "How fast can you arrive?",
+    "a2": "Our average response time is 20-30 minutes, depending on your location.",
+    "q3": "What areas do you serve?",
+    "a3": "We serve in Georgia, mostly Rustavi.",
+    "q4": "How much does towing cost?",
+    "a4": "Pricing depends on distance, vehicle type, and required service. Price in Rustavi is starting from 40 GEL",
+    "q5": "Do you tow exotic cars?",
+    "a5": "Absolutely! We have experience with luxury, sports, and exotic vehicles. Our team knows how to handle these special cars with care."
+  },
+  "map": {
+    "title": "Find Our Parking Lot"
+  },
+  "footer": {
+    "company_name": "MEGA+ Towing",
+    "company_desc": "Professional towing and recovery services available 24/7.",
+    "quick_links": "Menu",
+    "contact_info": "Contact Info",
+    "phone": "Phone: +995 551 305 305",
+    "email": "Email: megaplusrustavi@gmail.com",
+    "available": "Available: 24/7",
+    "follow_us": "Follow Us",
+    "copyright": "© 2025 MEGA+ Towing. All rights reserved."
+  }
+}
