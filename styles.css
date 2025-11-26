@@ -28,10 +28,6 @@ body {
     color: var(--dark-text);
     line-height: 1.6;
     background-color: #fff;
-    /* Performance: Enable font rendering optimization */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeSpeed;
 }
 
 /* ===== HEADER STYLES ===== */
@@ -553,11 +549,11 @@ body {
     background-image: url('./Photos/hero-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     align-items: center;
     justify-content: center;
-    /* Performance: Use contain for layout optimization */
-    contain: layout style paint;
 }
 
 .hero-left {
@@ -623,11 +619,11 @@ body {
 
 .cta-button {
     display: inline-block;
-    background-color: #FF3B30;
-    color: #ffffff;
+    background-color: var(--accent-color);
+    color: white;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -761,9 +757,6 @@ body {
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    /* Performance: Optimize transform and opacity animations */
-    will-change: transform;
-    contain: layout style paint;
 }
 
 .feature:hover {
@@ -899,8 +892,6 @@ body {
     background-color: var(--secondary-color);
     color: white;
     padding-top: 3rem;
-    /* Performance: Optimize footer rendering */
-    contain: layout style paint;
 }
 
 .footer-content {
@@ -2315,9 +2306,6 @@ body {
     text-decoration: none;
     white-space: nowrap;
     min-width: 180px;
-    /* Performance: Optimize transform animations */
-    will-change: transform;
-    contain: layout;
 }
 
 .sticky-call-btn:hover {

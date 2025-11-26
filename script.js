@@ -228,7 +228,7 @@ function setActiveNavLink() {
 // Call on page load
 window.addEventListener('load', setActiveNavLink);
 
-// Intersection Observer for fade-in animations (Performance optimized)
+// Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -243,18 +243,10 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-// Observe service cards and other sections (use requestIdleCallback for better performance)
-if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-        document.querySelectorAll('.service-card, .feature, .testimonial').forEach(element => {
-            observer.observe(element);
-        });
-    });
-} else {
-    document.querySelectorAll('.service-card, .feature, .testimonial').forEach(element => {
-        observer.observe(element);
-    });
-}
+// Observe service cards and other sections
+document.querySelectorAll('.service-card, .feature, .testimonial').forEach(element => {
+    observer.observe(element);
+});
 
 // Form submission handling (for contact page)
 // Let Formspree handle the submission naturally
@@ -264,21 +256,16 @@ if (contactForm) {
     // Form will submit and Formspree will redirect to success page
 }
 
-// Scroll to top button functionality (Throttled for performance)
+// Scroll to top button functionality
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-let scrollTimeout;
 
 window.addEventListener('scroll', function() {
-    if (scrollTimeout) return;
-    scrollTimeout = setTimeout(() => {
-        if (window.pageYOffset > 300) {
-            if (scrollToTopBtn) scrollToTopBtn.style.display = 'block';
-        } else {
-            if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
-        }
-        scrollTimeout = null;
-    }, 100);
-}, { passive: true });
+    if (window.pageYOffset > 300) {
+        if (scrollToTopBtn) scrollToTopBtn.style.display = 'block';
+    } else {
+        if (scrollToTopBtn) scrollToTopBtn.style.display = 'none';
+    }
+});
 
 if (scrollToTopBtn) {
     scrollToTopBtn.addEventListener('click', function() {
