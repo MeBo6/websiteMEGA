@@ -13,21 +13,30 @@
     <meta property="og:url" content="https://megaplusrustavi.com">
     
     <!-- Speed Optimization: Preconnect to external resources -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://nominatim.openstreetmap.org">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="Photos/hero-bg.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="Photos/Logo.png" as="image" fetchpriority="high">
+    <link rel="preload" href="script.js" as="script">
     
     <title>MEGA+ Towing - Professional Evacuation & Recovery Services 24/7</title>
     <link rel="icon" type="image/png" href="Photos/Logo.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="script.js" defer></script>
+    
+    <!-- Defer Font Awesome loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
     <header class="header">
         <nav class="navbar">
             <a href="index.htm" class="logo">
-                <img src="Photos/Logo.png" alt="MEGA+ Logo">
+                <img src="Photos/Logo.png" alt="MEGA+ Logo" width="60" height="60" loading="eager" fetchpriority="high">
                 <div class="logo-text">
                     <div class="company-name">MEGA+ Towing</div>
                     <div class="tagline">Fast & Reliable</div>
@@ -113,7 +122,7 @@
             <p class="service-area-intro" data-i18n="service_area.intro">We provide 24/7 professional towing and recovery services in Georgia, mostly in Rustavi. Response time: 15-20 minutes in Rustavi, up to 45 minutes in remote locations.</p>
             
             <div class="service-area-map">
-                <img src="Photos/GEO_Rustavi.png" alt="MEGA+ Towing Service Area - Kvemo Kartli Georgia" loading="lazy">
+                <img src="Photos/GEO_Rustavi.png" alt="MEGA+ Towing Service Area - Kvemo Kartli Georgia" width="800" height="600" loading="lazy" decoding="async">
             </div>
 
             <div class="coverage-info">
@@ -151,7 +160,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <img src="Photos/Logo.png" alt="MEGA+ Logo" class="footer-logo">
+                <img src="Photos/Logo.png" alt="MEGA+ Logo" class="footer-logo" width="200" height="200" loading="lazy" decoding="async">
             </div>
             <div class="footer-section">
                 <h4 data-i18n="footer.quick_links">Quick Links</h4>
@@ -186,5 +195,6 @@
         <i class="fas fa-phone"></i>
         <span data-i18n="sticky_btn">Call Us</span>
     </a>
+    <script src="script.js" async></script>
 </body>
 </html>
