@@ -276,37 +276,7 @@ body {
     border-color: var(--primary-color);
 }
 
-/* ===== END HEADER STYLES ===== */
-
-
-
-:root {
-    --primary-color: #DC143C;
-    --secondary-color: #1a1a1a;
-    --accent-color: #FF4444;
-    --dark-text: #222;
-    --light-text: #666;
-    --white: #fff;
-    --light-bg: #f8f9fa;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-display: swap;
-}
-
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--dark-text);
-    line-height: 1.6;
-    background-color: #fff;
-}
-
-/* The main header bar */
-
-
-/* LOCATION WIDGET */
+/* ===== END HEADER STYLES ===== *//* LOCATION WIDGET */
 .location-widget-section {
     padding: 3rem 4%;
     background-color: var(--light-bg);

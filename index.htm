@@ -13,13 +13,15 @@
     <meta property="og:url" content="https://megaplusrustavi.com">
     
     <!-- Speed Optimization: Preconnect to external resources -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://nominatim.openstreetmap.org">
     
     <title>MEGA+ Towing - Professional Evacuation & Recovery Services 24/7</title>
     <link rel="icon" type="image/png" href="Photos/Logo.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Defer Font Awesome to prevent render blocking -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -27,7 +29,7 @@
     <header class="header">
         <nav class="navbar">
             <a href="index.htm" class="logo">
-                <img src="Photos/Logo.png" alt="MEGA+ Logo">
+                <img src="Photos/Logo.png" alt="MEGA+ Logo" width="60" height="60">
                 <div class="logo-text">
                     <div class="company-name">MEGA+ Towing</div>
                     <div class="tagline">Fast & Reliable</div>
@@ -113,7 +115,7 @@
             <p class="service-area-intro" data-i18n="service_area.intro">We provide 24/7 professional towing and recovery services in Georgia, mostly in Rustavi. Response time: 15-20 minutes in Rustavi, up to 45 minutes in remote locations.</p>
             
             <div class="service-area-map">
-                <img src="Photos/GEO_Rustavi.png" alt="MEGA+ Towing Service Area - Kvemo Kartli Georgia" loading="lazy">
+                <img src="Photos/GEO_Rustavi.png" alt="MEGA+ Towing Service Area - Kvemo Kartli Georgia" width="800" height="600" loading="lazy">
             </div>
 
             <div class="coverage-info">
@@ -151,7 +153,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <img src="Photos/Logo.png" alt="MEGA+ Logo" class="footer-logo">
+                <img src="Photos/Logo.png" alt="MEGA+ Logo" class="footer-logo" width="200" height="200">
             </div>
             <div class="footer-section">
                 <h4 data-i18n="footer.quick_links">Quick Links</h4>
