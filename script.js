@@ -14,7 +14,7 @@ const LanguageManager = (() => {
         const stored = localStorage.getItem('selectedLanguage');
         if (stored) return stored;
         const browserLang = navigator.language.split('-')[0];
-        return ['en', 'ge', 'ru'].includes(browserLang) ? browserLang : 'en';
+        return ['en', 'ge', 'ru'].includes(browserLang) ? browserLang : 'ge';
     };
 
     // Load translations from localStorage cache
