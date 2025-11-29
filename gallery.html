@@ -34,6 +34,17 @@
     <link rel="preload" href="./Photos/hero-bg.jpg" as="image" fetchpriority="high">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Language Migration: Convert old 'ge' code to 'ka' for ISO 639-1 compliance -->
+    <script>
+        (function() {
+            const stored = localStorage.getItem('selectedLanguage');
+            if (stored === 'ge') {
+                localStorage.setItem('selectedLanguage', 'ka');
+            } else if (!stored) {
+                localStorage.setItem('selectedLanguage', 'ka');
+            }
+        })();
+    </script>
     <script src="script.js" defer></script>
     <script src="script.js" defer></script>
     <!-- Google Analytics -->
