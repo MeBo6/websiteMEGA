@@ -2,4 +2,4 @@
 # Allow all search engines to crawl the site
 
 User-agent: *
-Sitemap: https://megaplus.ge/sitemap.xml
+Sitemap: https://megaevacuator.ge/sitemap.xml
