@@ -9,12 +9,12 @@ const LanguageManager = (() => {
     let loadingTimeout = null;
     let pendingLanguage = null;
 
-    // Detect browser language or use stored preference
+    // Detect browser language or use stored preference, with Georgian as default
     const getInitialLanguage = () => {
         const stored = localStorage.getItem('selectedLanguage');
-        if (stored) return stored;
+        if (stored) return stored; // Use saved preference
         const browserLang = navigator.language.split('-')[0];
-        return ['en', 'ge', 'ru'].includes(browserLang) ? browserLang : 'ge';
+        return ['en', 'ge', 'ru'].includes(browserLang) ? browserLang : 'ge'; // Fallback to Georgian
     };
 
     // Load translations from localStorage cache
