@@ -202,20 +202,35 @@ function scrollToServices() {
 
 // Add active class to current navigation link
 function setActiveNavLink() {
-    const currentLocation = location.href;
+    const currentLocation = location.pathname;
+    const currentHash = location.hash;
     const navLinks = document.querySelectorAll('.nav-links a');
     
     navLinks.forEach(link => {
-        if (link.href === currentLocation) {
-            link.classList.add('active');
+        const linkPath = new URL(link.href, window.location.origin).pathname;
+        const linkHash = new URL(link.href, window.location.origin).hash;
+        
+        // Check if page matches
+        if (linkPath === currentLocation) {
+            // If on services page, check hash anchors
+            if (currentLocation.includes('services.html') && currentHash) {
+                // Only active if hash matches
+                link.classList.toggle('active', linkHash === currentHash);
+            } else if (linkHash === '' && currentHash === '') {
+                // Active if both have no hash
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
         } else {
             link.classList.remove('active');
         }
     });
 }
 
-// Call on page load
+// Call on page load and when hash changes
 window.addEventListener('load', setActiveNavLink);
+window.addEventListener('hashchange', setActiveNavLink);
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
