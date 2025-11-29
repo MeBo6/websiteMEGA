@@ -210,14 +210,14 @@ dropdownItems.forEach(item => {
         if (menu) {
             menu.classList.remove('active');
         }
-        // Close mobile menu
+        // Close mobile menu only when a submenu item is clicked (not on Services parent link)
         navLinks.classList.remove('active');
     });
 });
 
-// Close mobile menu when a link is clicked
-const navItems = document.querySelectorAll('.nav-links a');
-navItems.forEach(item => {
+// Close mobile menu when a regular nav link is clicked (but not dropdown parent)
+const regularNavLinks = document.querySelectorAll('.nav-links > li > a:not(.dropdown a)');
+regularNavLinks.forEach(item => {
     item.addEventListener('click', function() {
         navLinks.classList.remove('active');
     });
