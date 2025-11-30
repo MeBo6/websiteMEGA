@@ -129,7 +129,9 @@ const LanguageManager = (() => {
     return { init, loadLanguage, getCurrentLanguage: () => currentLanguage, t };
 })();
 
+// Initialize Language System
 LanguageManager.init();
+const t = (key) => LanguageManager.t(key);
 
 
 // ===== 2. MOBILE MENU & UI =====
@@ -142,16 +144,66 @@ if (mobileMenuToggle) {
     });
 }
 
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(item => {
+// Close mobile menu when clicking a regular link
+document.querySelectorAll('.nav-links > li > a:not(.dropdown a)').forEach(item => {
     item.addEventListener('click', () => {
         navLinks.classList.remove('active');
     });
 });
 
+// Mobile Dropdown Logic
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+    const dropdownLink = dropdown.querySelector('a');
+    
+    dropdownLink.addEventListener('click', function(e) {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (menu && !menu.classList.contains('active')) {
+                e.preventDefault();
+                menu.classList.add('active');
+                // Add active class to parent to rotate icon
+                dropdown.classList.add('active');
+            } else if (menu) {
+                // Allow closing by clicking again
+                menu.classList.remove('active');
+                dropdown.classList.remove('active');
+            }
+        }
+    });
+});
 
-// ===== 3. EMAILJS CONTACT FORM (თქვენი ახალი კოდი) =====
-// აქ ჩასვით თქვენი Public Key
+// Scroll to top button
+const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+if (scrollToTopBtn) {
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Intersection Observer for animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .feature, .testimonial').forEach(el => observer.observe(el));
+
+
+// ===== 3. EMAILJS CONTACT FORM =====
+// EmailJS ინიციალიზაცია (დარწმუნდით რომ Public Key სწორია)
 emailjs.init("s6A_JqGCPv51hEZMh"); 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -167,14 +219,17 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.innerText = 'იგზავნება...';
 
-            // Get the selected service option element to capture the displayed text
+            // Get selected service text safely
             const serviceSelect = document.getElementById('service');
-            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-            const serviceText = selectedOption.textContent || selectedOption.value;
+            let serviceText = "";
+            if (serviceSelect && serviceSelect.selectedIndex !== -1) {
+                const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+                serviceText = selectedOption.text || selectedOption.value;
+            }
 
             const templateParams = {
                 name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
+                email: document.getElementById('email').value || "არ არის მითითებული",
                 phone: document.getElementById('phone').value,
                 service: serviceText,
                 message: document.getElementById('message').value
@@ -195,19 +250,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
         });
     }
+    
+    // Allow Enter key for Location Input
+    const locationInput = document.getElementById('locationInput');
+    if (locationInput) {
+        locationInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitLocation();
+            }
+        });
+    }
 });
 
 
-// ===== 4. WHATSAPP LOCATION SENDER (გასწორებული) =====
-// HTML-ში ღილაკს აუცილებლად უნდა ეწეროს: onclick="sendLocationViaWhatsApp(event)"
+// ===== 4. LOCATION FUNCTIONS =====
 
+// ფუნქცია 1: ხელით ჩაწერილის გაგზავნა
+function submitLocation() {
+    const locationInput = document.getElementById('locationInput');
+    const locationValue = locationInput ? locationInput.value.trim() : '';
+    
+    if (!locationValue) {
+        alert('გთხოვთ ჩაწეროთ თქვენი ადგილმდებარეობა');
+        return;
+    }
+    
+    const message = `გამარჯობა, მჭირდება ევაკუატორი! ჩემი ლოკაცია: ${locationValue}`;
+    const phoneNumber = '+995551305305';
+    
+    window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// ფუნქცია 2: GPS ლოკაციის გაგზავნა (ღილაკზე დაჭერისას)
 function sendLocationViaWhatsApp(event) {
     if (navigator.geolocation) {
         const btn = event.target.closest('button');
         const originalText = btn.innerHTML;
         
-        // ვიზუალური ეფექტი
-        btn.innerHTML = '<span>⏳</span> ლოკაცია იძებნება...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ლოკაცია იძებნება...';
         btn.disabled = true;
         
         navigator.geolocation.getCurrentPosition(
@@ -215,23 +295,20 @@ function sendLocationViaWhatsApp(event) {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
                 
-                // ✅ შესწორებულია: სწორი Google Maps ლინკი
+                // სწორი Google Maps ლინკი
                 const googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
                 
                 const message = `გამარჯობა, მჭირდება ევაკუატორი! ჩემი ლოკაციაა: ${googleMapsLink}`;
                 const phoneNumber = '+995551305305';
-                const encodedMessage = encodeURIComponent(message);
                 
-                // WhatsApp-ის გახსნა
-                window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`, '_blank');
+                window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`, '_blank');
                 
-                // ღილაკის დაბრუნება
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             },
             function(error) {
                 console.error("Geolocation error:", error);
-                alert('ვერ ხერხდება ლოკაციის გაგება. გთხოვთ ჩართოთ GPS თქვენს ტელეფონში.');
+                alert('ვერ ხერხდება ლოკაციის გაგება. დარწმუნდით რომ GPS ჩართულია.');
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             },
