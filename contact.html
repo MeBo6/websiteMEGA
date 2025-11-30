@@ -45,6 +45,13 @@
         })();
     </script>
     <script src="script.js" defer></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("s6A_JqGCPv51hEZMh");
+        })();
+    </script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0RS4B947Q"></script>
     <script>
@@ -158,7 +165,7 @@
             </div>
             <!-- CONTACT FORM -->
             <div>
-                <form class="contact-form" action="https://formspree.io/f/mvgdjopa" method="POST">
+                <form class="contact-form" id="contactForm">
                     <h3 data-i18n="contact_page.form_title">გამოგვიგზავნეთ წერილი</h3>
                     <div class="form-group">
                         <label for="name" data-i18n="contact_page.name_label">თქვენი სახელი *</label>
@@ -166,7 +173,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email" data-i18n="contact_page.email_label">ელ-ფოსტის მისამართი *</label>
-                        <input type="email" id="email" name="email" data-i18n-placeholder="contact_page.email_placeholder">
+                        <input type="email" id="email" name="email" data-i18n-placeholder="contact_page.email_placeholder" required>
                     </div>
                     <div class="form-group">
                         <label for="phone" data-i18n="contact_page.phone_label">ტელეფონის ნომერი *</label>
@@ -191,7 +198,7 @@
                         <textarea id="message" name="message" data-i18n-placeholder="contact_page.message_placeholder" required></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" data-i18n="contact_page.submit_button">წერილის გაგზავნა</button>
+                        <button type="submit" id="submitBtn" data-i18n="contact_page.submit_button">წერილის გაგზავნა</button>
                     </div>
                     <p style="font-size: 0.85rem; color: var(--light-text); margin-top: 1rem;" data-i18n="contact_page.required_text">
                         * არის აუცილებელი ველი. სასწრაფო შემთხვევებისთვის, დაგვირეკეთ +995 551 305 305 ზე

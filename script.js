@@ -358,6 +358,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// EMAILJS CONTACT FORM HANDLER
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'იგზავნება...';
+            
+            // Prepare template parameters
+            const templateParams = {
+                to_email: 'megaplusrustavi@gmail.com',
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value || 'მოუხსენებელი',
+                message: document.getElementById('message').value
+            };
+            
+            // Send email via EmailJS
+            emailjs.send('service_89e1the', 'template_bdqh1dg', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('წერილი წარმატებით გაიგზავნა! ჩვენ მალე გიპასუხებთ.');
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('სამწუხაროდ, ხარვეზი წარმოიშვა. გთხოვთ ცადეთ მეორე ჯერ ან დაგვირეკეთ.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                });
+        });
+    }
+});
+
 // SEND LOCATION VIA WHATSAPP
 // Note: In HTML, make sure to call it like this: onclick="sendLocationViaWhatsApp(event)"
 function sendLocationViaWhatsApp(event) {
