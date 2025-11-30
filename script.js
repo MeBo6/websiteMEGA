@@ -155,22 +155,32 @@ document.querySelectorAll('.nav-links > li > a:not(.dropdown a)').forEach(item =
 const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(dropdown => {
     const dropdownLink = dropdown.querySelector('a');
+    const dropdownMenu = dropdown.querySelector('.dropdown-menu');
     
     dropdownLink.addEventListener('click', function(e) {
         if (window.matchMedia('(max-width: 768px)').matches) {
-            const menu = dropdown.querySelector('.dropdown-menu');
-            if (menu && !menu.classList.contains('active')) {
+            if (dropdownMenu && !dropdownMenu.classList.contains('active')) {
                 e.preventDefault();
-                menu.classList.add('active');
-                // Add active class to parent to rotate icon
+                dropdownMenu.classList.add('active');
                 dropdown.classList.add('active');
-            } else if (menu) {
-                // Allow closing by clicking again
-                menu.classList.remove('active');
+            } else if (dropdownMenu) {
+                dropdownMenu.classList.remove('active');
                 dropdown.classList.remove('active');
             }
         }
     });
+    
+    // Close dropdown when a submenu item is clicked
+    if (dropdownMenu) {
+        const submenuLinks = dropdownMenu.querySelectorAll('a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                dropdownMenu.classList.remove('active');
+                dropdown.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
 });
 
 // Scroll to top button
