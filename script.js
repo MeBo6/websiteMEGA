@@ -167,11 +167,16 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.innerText = 'იგზავნება...';
 
+            // Get the selected service option element to capture the displayed text
+            const serviceSelect = document.getElementById('service');
+            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+            const serviceText = selectedOption.textContent || selectedOption.value;
+
             const templateParams = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value,
+                service: serviceText,
                 message: document.getElementById('message').value
             };
 
