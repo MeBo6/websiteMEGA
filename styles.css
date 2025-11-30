@@ -2924,3 +2924,78 @@ body {
         overflow-wrap: anywhere;
     }
 }
+
+/* ===== COOKIE BANNER STYLES ===== */
+.cookie-banner {
+    position: fixed;
+    bottom: -100%; /* თავიდან დამალულია */
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.95); /* მუქი ფონი */
+    color: white;
+    padding: 1.5rem;
+    z-index: 9999; /* ყველაფერზე ზემოთ */
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+    transition: bottom 0.5s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+.cookie-banner.show {
+    bottom: 0; /* გამოჩენა */
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #eee;
+}
+
+.cookie-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#accept-cookies-btn {
+    background-color: var(--primary-color, #DC143C);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+#accept-cookies-btn:hover {
+    transform: scale(1.05);
+    background-color: #ff2e5b;
+}
+
+.cookie-link {
+    color: #aaa;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.cookie-link:hover {
+    color: white;
+}
+
+/* მობილურისთვის */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

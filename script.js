@@ -332,3 +332,26 @@ function sendLocationViaWhatsApp(event) {
         alert('თქვენს ბრაუზერს არ აქვს გეოლოკაციის მხარდაჭერა.');
     }
 }
+
+// ===== COOKIE CONSENT LOGIC =====
+document.addEventListener('DOMContentLoaded', function() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies-btn');
+
+    // შემოწმება: აქვს თუ არა უკვე მიღებული თანხმობა
+    if (!localStorage.getItem('cookieConsent')) {
+        // თუ არ აქვს, გამოვაჩინოთ ბანერი ცოტა დაგვიანებით (2 წამში)
+        setTimeout(() => {
+            if(cookieBanner) cookieBanner.classList.add('show');
+        }, 2000);
+    }
+
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            // დავიმახსოვროთ თანხმობა
+            localStorage.setItem('cookieConsent', 'true');
+            // დავმალოთ ბანერი
+            if(cookieBanner) cookieBanner.classList.remove('show');
+        });
+    }
+});
